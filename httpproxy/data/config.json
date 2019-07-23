@@ -1,0 +1,18 @@
+{
+    "environment": "",
+    "locale_domain": "http_proxy",
+    "language": "en",
+    "locale_dir": "~/.http_proxy/locale",
+    "log_file": "~/.http_proxy/http_proxy.log",
+    "log_format": "%(levelname)-10s|%(asctime)s| %(name)s --- %(message)s (%(filename)s:%(lineno)d)",
+    "enabled": [
+        {
+            "domain": "bitbucket.org",
+            "url": ["/buildByToken/build?job=Automation_New_Job&token="],
+            "redirect": "http://some_url:some_port",
+            "follow_redirect": false,
+            "code_expected": 201,
+            "attempts": 3
+        }
+    ]
+}

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+./venv_create $1
+./data_create $1

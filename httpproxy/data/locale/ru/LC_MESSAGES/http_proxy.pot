@@ -1,0 +1,41 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-07-23 08:52+IDT\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: ENCODING\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: config/__init__.py:42
+msgid "incorrect logging level"
+msgstr "неверный уровень логирования"
+
+#: config/__init__.py:42
+msgid "used"
+msgstr "используется"
+
+#: config/__init__.py:43
+msgid "by default"
+msgstr "по умолчанию"
+
+#: config/__init__.py:53
+msgid "activated virtual environment"
+msgstr "виртуальное окружение активизировано"
+
+#: utils/helpers.py:170 utils/helpers.py:173
+msgid "error"
+msgstr "ошибка"
+
+#: utils/helpers.py:175
+msgid "error termination"
+msgstr "завершение по ошибке"
+

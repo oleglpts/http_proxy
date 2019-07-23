@@ -1,0 +1,11 @@
+Package             Version 
+------------------- --------
+dnspython           1.15.0  
+dnspython3          1.15.0  
+easy-daemon         0.0.3   
+pip                 19.0.3  
+pkg-resources       0.0.0   
+pooled-ProcessMixIn 0.0.1   
+pycurl              7.43.0.3
+setuptools          40.8.0  
+wheel               0.33.4  
