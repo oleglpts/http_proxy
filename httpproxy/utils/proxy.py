@@ -40,10 +40,9 @@ class ExecDaemon(Daemon):
             proxy.serve_forever()
         finally:
             proxy.shutdown()
-        logger.info(_('terminal terminated'))
         signal.signal(signal.SIGTERM, default)
         os.kill(os.getpid(), signal.SIGTERM)
-        self.logger.info('daemon terminated')
+        self.logger.info(_('daemon terminated'))
 
 
 class HTTPProxy(PooledProcessMixIn, HTTPServer):

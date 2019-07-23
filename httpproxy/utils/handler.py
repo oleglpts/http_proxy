@@ -1,7 +1,7 @@
 from dns import resolver
 from http.server import BaseHTTPRequestHandler
 from httpproxy.utils.helpers import curl_request, error_handler
-from httpproxy.config import translate as _, logger, config_args
+from httpproxy.config import translate as _, logger, config_args, cmd_args
 
 
 class MyTestHandler (BaseHTTPRequestHandler):
@@ -14,7 +14,10 @@ class MyTestHandler (BaseHTTPRequestHandler):
         for host in config_args.get('enabled', []):
             try:
                 for s in resolver.query(host['domain'], 'A'):
-                    if s.address == self.client_address[0]:
+                    if s.address == self.client_address[0] or cmd_args.debug:
+                        if cmd_args.debug:
+                            logger.info('%s ---%s \'%s\' %s' % (_('DEBUG MODE'), _('domain'), host['domain'],
+                                                                _('not checked!!!')))
                         for u in host.get('url', []):
                             if self.path.startswith(u):
                                 code, url, response = None, '%s%s' % (host.get('redirect', ''), self.path), None

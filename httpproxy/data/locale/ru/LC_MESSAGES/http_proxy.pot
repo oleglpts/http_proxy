@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-07-23 08:52+IDT\n"
+"POT-Creation-Date: 2019-07-23 17:04+IDT\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,27 +15,55 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 
 
-#: config/__init__.py:42
+#: config/__init__.py:50
 msgid "incorrect logging level"
 msgstr "неверный уровень логирования"
 
-#: config/__init__.py:42
+#: config/__init__.py:50
 msgid "used"
 msgstr "используется"
 
-#: config/__init__.py:43
+#: config/__init__.py:51
 msgid "by default"
 msgstr "по умолчанию"
 
-#: config/__init__.py:53
+#: config/__init__.py:61
 msgid "activated virtual environment"
-msgstr "виртуальное окружение активизировано"
+msgstr "виртуальная среда активизирована"
 
-#: utils/helpers.py:170 utils/helpers.py:173
+#: utils/handler.py:19
+msgid "DEBUG MODE"
+msgstr "ОТЛАДОЧНЫЙ РЕЖИМ"
+
+#: utils/handler.py:19 utils/handler.py:47
+msgid "domain"
+msgstr "домен"
+
+#: utils/handler.py:20
+msgid "not checked!!!"
+msgstr "не проверен!!!"
+
+#: utils/handler.py:47
+msgid "not exists"
+msgstr "не существует"
+
+#: utils/handler.py:49
+msgid "no answer for domain"
+msgstr "нет ответа для домена"
+
+#: utils/handler.py:51
+msgid "get handler"
+msgstr "обработка get-запроса"
+
+#: utils/helpers.py:153 utils/helpers.py:156
 msgid "error"
 msgstr "ошибка"
 
-#: utils/helpers.py:175
+#: utils/helpers.py:158
 msgid "error termination"
 msgstr "завершение по ошибке"
+
+#: utils/proxy.py:43
+msgid "daemon terminated"
+msgstr "демон завершился"
 
