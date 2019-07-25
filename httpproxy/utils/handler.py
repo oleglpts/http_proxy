@@ -10,7 +10,8 @@ class MyTestHandler (BaseHTTPRequestHandler):
     Request handler
 
     """
-    def do_GET(self):
+
+    def do_POST(self):
         for host in config_args.get('enabled', []):
             try:
                 for s in resolver.query(host['domain'], 'A'):
@@ -21,10 +22,15 @@ class MyTestHandler (BaseHTTPRequestHandler):
                         for u in host.get('url', []):
                             if self.path.startswith(u):
                                 code, url, response = None, '%s%s' % (host.get('redirect', ''), self.path), None
+                                content_length = int(dict(self.headers).get('Content-Length', 0))
+                                data = self.rfile.read(content_length).decode() if content_length else ''
                                 for x in range(host.get('attempts', 3)):
-                                    code, headers, response = curl_request(url, raw=True)
-                                    logger.info('%s [%s] GET %s --> %s' % (
-                                        self.client_address[0], code, self.path, host.get('redirect', '')))
+                                    code, headers, response = curl_request(
+                                        url, post_data=data, raw_data=True, raw=True,
+                                        head=[k+': '+v for k, v in dict(self.headers).items()])
+                                    logger.info('%s [%s] %s %s --> %s' % (
+                                        self.client_address[0], code, self.command, self.path,
+                                        host.get('redirect', '')))
                                     if code == 302 and host.get('follow_redirect', False):
                                         redirect = None
                                         for header in headers.decode().split('\r\n'):
@@ -33,8 +39,8 @@ class MyTestHandler (BaseHTTPRequestHandler):
                                                 break
                                         if redirect:
                                             code, headers, response = curl_request(redirect, raw=True)
-                                            logger.info('%s [%s] GET %s --> %s' % (
-                                                self.client_address[0], code, self.path, redirect))
+                                            logger.info('%s [%s] %s %s --> %s' % (
+                                                self.client_address[0], code, self.command, self.path, redirect))
                                     if code == host.get('code_expected', 201):
                                         break
                                 self.send_response(code)
@@ -52,5 +58,8 @@ class MyTestHandler (BaseHTTPRequestHandler):
         self.send_response(403)
         self.send_header('Content-Type', 'text/plain')
         self.end_headers()
-        logger.info('%s [403] GET %s' % (self.client_address[0], self.path))
+        logger.info('%s [403] %s %s' % (self.client_address[0], self.command, self.path))
         self.wfile.write(bytes('403 Forbidden'.encode()))
+
+    def do_GET(self):
+        self.do_POST()
