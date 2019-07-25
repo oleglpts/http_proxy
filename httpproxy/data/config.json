@@ -13,6 +13,16 @@
             "follow_redirect": false,
             "code_expected": 201,
             "attempts": 3
+        },
+        {
+            "domain": "bitbucket.org",
+            "url": [
+                "/generic-webhook-trigger/invoke?token="
+            ],
+            "redirect": "http://some_url:some_port",
+            "follow_redirect": false,
+            "code_expected": 200,
+            "attempts": 3
         }
     ]
 }
