@@ -4,5 +4,5 @@ easy-daemon==0.0.3
 pip==19.0.3
 pooled-ProcessMixIn==0.0.1
 pycurl==7.43.0.3
-setuptools==40.8.0
+setuptools==65.5.1
 wheel==0.33.4
